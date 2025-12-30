@@ -19,12 +19,10 @@ body {
     background-size: 30px 30px;
 }
 
-/* Sharp HUD Panels with Notched Corners */
 .cyber-panel {
     background: var(--panel-bg);
     border: 1px solid var(--border-dim);
     position: relative;
-    /* This creates the industrial "notched" look */
     clip-path: polygon(0 0, 98% 0, 100% 4%, 100% 100%, 2% 100%, 0 96%);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -35,7 +33,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* Vertical HUD Decoration */
 .hud-vertical {
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -45,7 +42,6 @@ body {
     opacity: 0.3;
 }
 
-/* Industrial Action Button */
 .btn-industrial {
     background: transparent;
     border: 1px solid var(--electric-blue);

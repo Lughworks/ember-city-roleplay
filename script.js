@@ -38,7 +38,6 @@ window.openBentoPage = async (pageName) => {
 
     try {
         const pageModule = await import(`./pages/${pageName}.js`);
-        // Map common export names
         const renderFunc = pageModule[`render${pageName.charAt(0).toUpperCase() + pageName.slice(1)}`] || pageModule.render;
         
         pageOverlay.innerHTML = renderFunc();
