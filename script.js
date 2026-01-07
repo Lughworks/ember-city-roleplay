@@ -77,7 +77,7 @@ async function fetchFiveMStatus() {
         if (data && data.Data) {
             const players = data.Data.clients;
             const max = data.Data.sv_maxclients;
-            if (statusEl) statusEl.innerHTML = `<span class="text-electric">ONLINE</span> // ${players}/${max}`;
+            if (statusEl) statusEl.innerHTML = `<span style="color: var(--electric-blue)">ONLINE</span> // ${players}/${max}`;
             if (playerEl) playerEl.innerText = `${players} / ${max}`;
             if (nameEl) nameEl.innerHTML = `<span class="text-electric">${data.Data.hostname} © 2025</span>`;
         }

@@ -1,7 +1,9 @@
 :root {
     --electric-blue: #00f2ff;
+    --crimson-red: #ff0000; /* Added for consistency */
     --panel-bg: rgba(5, 5, 5, 0.9);
     --border-dim: rgba(0, 242, 255, 0.15);
+    --border-dim-red: rgba(255, 0, 0, 0.15); /* Added for red panels */
 }
 
 body {
@@ -10,6 +12,22 @@ body {
     color: #fff;
     overflow-x: hidden;
     margin: 0;
+}
+
+#text-electric {
+    color: #00f2ff;
+}
+
+#text-red {
+    color: rgb(255, 0, 0);
+}
+
+.text-electric {
+    color: #00f2ff;
+}
+
+.text-red {
+    color: rgb(255, 0, 0);
 }
 
 .heading-font { font-family: 'Inter', sans-serif; }
@@ -30,6 +48,20 @@ body {
 .cyber-panel:hover {
     border-color: var(--electric-blue);
     background: rgba(0, 242, 255, 0.03);
+    transform: translateY(-5px);
+}
+
+.cyber-panel-crim {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-dim-red); /* Changed from dim-blue */
+    position: relative;
+    clip-path: polygon(0 0, 98% 0, 100% 4%, 100% 100%, 2% 100%, 0 96%);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cyber-panel-crim:hover {
+    border-color: var(--crimson-red);
+    background: rgba(255, 0, 0, 0.03); /* Changed from blue tint to red tint */
     transform: translateY(-5px);
 }
 
@@ -62,3 +94,61 @@ body {
 
 .scroll-custom::-webkit-scrollbar { width: 4px; }
 .scroll-custom::-webkit-scrollbar-thumb { background: var(--electric-blue); }
+
+/* Add to style.css */
+
+/* Subtle Scanlines - Non-glitching, static texture */
+.blueprint-grid::after {
+    content: " ";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+/* Deep Vignette for focus */
+.vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* Smooth Pulse for Live status */
+.pulse-soft {
+    animation: pulse-soft 3s infinite ease-in-out;
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Button fill animation */
+.btn-fill-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-fill-hover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: white;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.btn-fill-hover:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-fill-hover:hover {
+    color: black;
+}

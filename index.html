@@ -1,75 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMBER CITY | Ignite Your Story</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="blueprint-grid min-h-screen">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EMBER CITY | Ignite Your Story</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            electric: '#00f2ff',
+                            crimson: '#ff0000',
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body class="blueprint-grid min-h-screen">
+        <div class="vignette"></div>
 
-    <div id="boot-loader" class="fixed inset-0 z-[300] bg-[#050505] flex flex-col p-8 font-mono text-[10px] text-[#00f2ff] transition-opacity duration-1000">
-        <div id="boot-log" class="max-w-md"></div>
-    </div>
-
-    <main class="p-6 md:p-12 max-w-[1600px] mx-auto transition-all duration-700">
-        <div class="flex flex-col lg:flex-row gap-8">
-            
-            <div class="lg:w-12 flex lg:flex-col justify-between items-center py-8 border-r border-zinc-900 hidden lg:flex">
-                <span class="hud-vertical uppercase font-black">System_Uplink_Established</span>
-                <div class="h-64 w-[1px] bg-electric/10"></div>
-                <span class="hud-vertical uppercase font-black text-electric">Ember_OS_v4.0</span>
-            </div>
-
-            <div class="flex-1">
-                <div class="mb-20 text-electric heading-font text-8xl md:text-[11rem] font-black uppercase tracking-tighter leading-[0.8] italic ml-16">
-                    EMBER CITY.
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <div onclick="openBentoPage('systems')" class="md:col-span-8 cyber-panel p-12 h-[450px] flex flex-col justify-end group cursor-pointer">
-                        <div class="absolute top-8 right-8 text-[10px] font-mono text-electric opacity-40 group-hover:opacity-100 transition-opacity">
-                            [ CLICK TO INITIALIZE ARCHITECTURE_SCAN ]
-                        </div>
-                        <h3 class="text-6xl font-black italic uppercase">Systems Architecture</h3>
-                        <p class="text-xs text-zinc-500 max-w-sm uppercase tracking-widest mt-4">Exploring high-frequency entity interpolation and core logic.</p>
-                    </div>
-
-                    <div class="md:col-span-4 cyber-panel p-10 flex flex-col justify-between border-l-4 border-l-electric">
-                        <span class="text-[10px] font-black text-electric tracking-[0.3em]">LIVE_POPULATION</span>
-                        <div>
-                            <div id="player-count" class="text-6xl font-black italic tracking-tighter">-- / --</div>
-                            <div class="text-[10px] opacity-30 mt-4 uppercase">Citizens currently synchronized</div>
-                        </div>
-                        <button class="btn-industrial w-full mt-8">Connect to Grid</button>
-                    </div>
-
-                    <div onclick="openBentoPage('legal')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group">
-                        <span class="text-electric text-[10px] font-mono">01 // REGISTRY</span>
-                        <h4 class="text-2xl font-black uppercase italic mt-2">Legal Careers</h4>
-                    </div>
-
-                    <div onclick="openBentoPage('underworld')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group">
-                        <span class="text-electric text-[10px] font-mono">02 // ENCRYPTED</span>
-                        <h4 class="text-2xl font-black uppercase italic mt-2">Underworld</h4>
-                    </div>
-
-                    <div onclick="openBentoPage('emergency')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group">
-                        <span class="text-electric text-[10px] font-mono">03 // DISPATCH</span>
-                        <h4 class="text-2xl font-black uppercase italic mt-2">Emergency</h4>
-                    </div>
-                </div>
-            </div>
+        <div id="boot-loader"
+            class="fixed inset-0 z-[300] bg-[#050505] flex flex-col p-8 font-mono text-[10px] text-electric transition-opacity duration-1000">
+            <div id="boot-log" class="max-w-md"></div>
         </div>
-    </main>
 
-    <footer class="mt-20 p-12 border-t border-zinc-900 flex justify-between items-center text-[8px] text-zinc-700 font-black uppercase tracking-[0.5em]">
-        <div id="server-name">Ember City Roleplay © 2025</div>
-        <div id="server-status">INITIALIZING...</div>
-    </footer>
+        <main class="relative z-10 p-6 md:p-12 max-w-[1600px] mx-auto transition-all duration-700">
+            <div class="hidden lg:flex justify-between items-center mb-12 border-b border-zinc-900 pb-4 opacity-40 font-mono text-[8px] tracking-[0.5em]">
+                <div class="flex gap-8">
+                    <span>COORD: 34.0522 // -118.2437</span>
+                    <span>OS_VER: 4.0.0_STABLE</span>
+                </div>
+                <div class="flex gap-6 items-center">
+                    <span class="pulse-soft">● SYSTEM_INTEGRITY_NOMINAL</span>
+                    <span>SECURE_LINK_ESTABLISHED</span>
+                </div>
+            </div>
 
-    <script src="script.js"></script>
-</body>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-12 flex lg:flex-col justify-between items-center py-8 border-r border-zinc-900 hidden lg:flex">
+                    <span class="hud-vertical uppercase font-black opacity-20 tracking-widest">DATA_STREAM_INBOUND</span>
+                    <div class="h-64 w-[1px] bg-electric/20 relative">
+                         <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-electric/40 to-transparent pulse-soft"></div>
+                    </div>
+                    <span class="hud-vertical uppercase font-black text-electric tracking-widest">EMBER_CITY_OS</span>
+                </div>
+
+                <div class="flex-1">
+                    <header class="mb-20">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="h-[1px] w-12 bg-electric"></div>
+                            <span class="text-electric text-[9px] font-bold uppercase tracking-[0.5em]">Initialization Sequence</span>
+                        </div>
+                        <h1 class="heading-font text-8xl md:text-[10rem] font-black uppercase tracking-tighter italic leading-[0.8] mb-10">
+                            EMBER <span class="text-electric">CITY</span>
+                        </h1>
+                        <p class="max-w-xl text-zinc-500 text-[10px] font-mono uppercase tracking-[0.3em] leading-relaxed">
+                            Back-to-basics immersive storytelling. <br>
+                            <span class="text-white">Authentic interaction matters more than the grind.</span>
+                        </p>
+
+                        <div class="flex flex-wrap gap-6 mt-12">
+                            <a href="https://ember-roleplay.tebex.io" target="_blank" 
+                               class="btn-fill-hover bg-electric text-black px-12 py-5 font-black uppercase italic text-xs shadow-[0_0_40px_rgba(0,242,255,0.15)]">
+                                Support_Project
+                            </a>
+                            <button onclick="openBentoPage('rules')" 
+                                    class="px-12 py-5 border border-zinc-800 text-zinc-500 font-black uppercase italic text-xs hover:text-white hover:border-white transition-all">
+                                Review_Directives
+                            </button>
+                        </div>
+                    </header>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+                        <div onclick="openBentoPage('manifesto')" 
+                             class="md:col-span-8 cyber-panel p-10 cursor-pointer group border-l-4 border-l-electric overflow-hidden">
+                            <span class="text-electric text-[10px] font-mono tracking-[0.5em]">00 // THE_CORE</span>
+                            <h4 class="text-5xl font-black uppercase italic mt-4 group-hover:translate-x-3 transition-transform duration-500">The Manifesto</h4>
+                            <p class="text-zinc-500 text-[10px] uppercase mt-4 tracking-widest leading-loose max-w-lg">
+                                Roleplay without ego. Stories emerge from actions. Every player shapes the city.
+                            </p>
+                        </div>
+
+                        <div class="md:col-span-4 cyber-panel p-8 flex flex-col justify-center items-center bg-electric/5">
+                            <div class="text-[10px] font-mono text-zinc-500 mb-2 uppercase text-center">Current_Sync</div>
+                            <div id="player-count" class="text-5xl font-black italic tracking-tighter text-electric">0 / 0</div>
+                            <button onclick="window.location.href='https://cfx.re/join/oero9r'" class="btn-industrial w-full mt-8 py-3 text-[10px]">Connect to Grid</button>
+                        </div>
+
+                        <div onclick="openBentoPage('legal')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group">
+                            <span class="text-electric text-[10px] font-mono">01 // REGISTRY</span>
+                            <h4 class="text-2xl font-black uppercase italic mt-2 group-hover:text-electric transition-colors">Legal Careers</h4>
+                        </div>
+
+                        <div onclick="openBentoPage('underworld')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group border-b-2 border-b-crimson/30">
+                            <span class="text-crimson text-[10px] font-mono">02 // ENCRYPTED</span>
+                            <h4 class="text-2xl font-black uppercase italic mt-2 group-hover:text-crimson transition-colors">Underworld</h4>
+                        </div>
+
+                        <div onclick="openBentoPage('systems')" class="md:col-span-4 cyber-panel p-8 cursor-pointer group">
+                            <span class="text-zinc-500 text-[10px] font-mono">03 // HARDWARE</span>
+                            <h4 class="text-2xl font-black uppercase italic mt-2 group-hover:text-white transition-colors">Systems</h4>
+                        </div>
+
+                        <div onclick="openBentoPage('emergency')" class="md:col-span-12 cyber-panel p-8 cursor-pointer group flex justify-between items-center">
+                            <div>
+                                <span class="text-blue-500 text-[10px] font-mono">04 // DISPATCH</span>
+                                <h4 class="text-2xl font-black uppercase italic mt-2 group-hover:text-blue-400 transition-colors">Emergency Services</h4>
+                            </div>
+                            <span class="text-4xl opacity-10 group-hover:opacity-100 transition-all">→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-20 p-12 border-t border-zinc-900 flex justify-between items-center text-[8px] text-zinc-700 font-black uppercase tracking-[0.5em]">
+            <div id="server-name">Ember City Roleplay © 2025</div>
+            <div id="server-status">INITIALIZING...</div>
+        </footer>
+
+        <script src="script.js" type="module"></script>
+    </body>
 </html>
